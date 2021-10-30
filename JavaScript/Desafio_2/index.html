@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap  -->
+    <link href="bootstrap\css\bootstrap.min.css" rel="stylesheet">
+   
+    <title>Coder - JS</title>
+</head>
+<body>
+
+    <!-- Image and text -->
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand">
+        Banco de Springfield
+    </a>
+  </nav>
+  <div style="height: 20px;"></div>
+  <div style="margin-left: 30%;">
+    <p style="text-align: justify;  width: 40%; ">En el banco de Springfield otorgamos prestamos de tasa fija anual del 5% con el sistema Francés. Debajo encontrará un simulador para calcular la cuota del préstamo!</p>
+</div>
+
+<div style="margin-left: 30%; width: 30%"class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Capital</span>
+    </div>
+    <input type="number" id="capital" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div style="margin-left: 30%; width: 30%"class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Cuotas</span>
+    </div>
+    <input type="number" id="cuotas" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div style="margin-left: 30%;">
+  <button onclick="tablaCuotas()" type="button" class="btn btn-primary" id="calcular_interes">Calcular</button>
+</div>
+
+<div style="height: 20px;"></div>
+
+<div style="margin-left: 30%;" id="tabla"></div>
+
+<script>
+
+</script>
+
+    <!-- script del desafío --> 
+    <script src="src/js/main.js"></script> 
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+
+</body>
+</html>

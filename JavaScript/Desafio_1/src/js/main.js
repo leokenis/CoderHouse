@@ -1,5 +1,3 @@
-// script del desafío
-
 // Ingreso los datos del usuario para calcular el año de su nacimiento
 var diaEdadUsuario = prompt("Ingrese el número de día de su fecha de nacimiento");
 console.log (diaEdadUsuario);

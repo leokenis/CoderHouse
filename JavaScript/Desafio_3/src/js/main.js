@@ -84,7 +84,7 @@ function seeArticles () {
     var text = "";
     const EL = "\n" // End Line
     for (var i=0; i<products.length; i++) {
-        text = text + products[i].mostrar();
+        text = text + products[i].mostrar() + EL + EL;
     }
     alert (text);
 }

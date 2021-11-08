@@ -76,7 +76,10 @@ do {
 function addArticle () {
     var article = prompt ("Ingrese el nombre del artículo: ");
     var price = prompt ("Ingrese el precio del artículo: $");
-    products [ID] = new product (article, price);
+    // inserto objeto según el índice global
+    // **** products [ID] = new product (article, price);  
+    // insertar con push
+    products.push (new product (article, price));
     ID ++;
 }
 
@@ -84,10 +87,7 @@ function seeArticles () {
     var text = "";
     const EL = "\n" // End Line
     for (var i=0; i<products.length; i++) {
-        text = text + products[i].mostrar();
+        text = text + products[i].mostrar() + EL + EL;
     }
     alert (text);
 }
-
-// var producto1 = new product ("Coca Cola", 10);
-// producto1.mostrar ();

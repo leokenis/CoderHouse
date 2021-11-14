@@ -12,28 +12,55 @@
     <title>Coder - JS</title>
 </head>
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
           <a class="navbar-brand">Consultorios Externos - CoderHouse JS!</a>
         </div>
     </nav>
+
+    <p class="h5 text-center pt-4 ">Agregar artículo a la lista:</p>
     
     <div class="container pt-4 col-sm-4">
-        <label>Nombre y Apellido</label>    
+        <label>Nombre del artículo</label>    
         <div class="input-group mb-3">
-          
+            <input id="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+    </div>
+
+    <div class="container pt-1 col-sm-4">
+        <label>Precio del producto</label>    
+        <div class="input-group mb-3">
             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-          </div>
-      </div>
+        </div>
+    </div>
+
+    <div class="container pt-1 col-sm-4">
+        <label>Precio del producto</label> 
+        <select id="article-type" class="form-select" aria-label="Default select example">
+        <option selected>Seleccione el tipo de artículo</option>
+        </select>
+    </div>
+
+    <div class="text-center pt-5">
+        <button id="add" type="button" class="btn btn-primary">Add Article</button>
+    </div>
     
-    
-    <!-- script del desafío
-    <script src="src/js/main.js"></script>
+    <!-- Pruebas interactuar con el DOM
+
+    <div id="container">
+        <h1>Hola Coders!</h1>
+        <h3 class="saludar">Bienvenidos al mundo del DOM</h3>
+    </div>
     -->
 
     <!-- script del desafío -->
+    <script src="src/js/main.js"></script>
+    
+
+    <!-- script del desafío 
     <script src="test.js"></script>
+    -->
 
     <!-- Bootstrap -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

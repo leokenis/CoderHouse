@@ -1,5 +1,5 @@
 // Agregar productos al stock
-
+/*
 var ID = 0;
 
 var products = [];  // Array de objetos.
@@ -91,3 +91,37 @@ function seeArticles () {
     }
     alert (text);
 }
+*/  
+
+var button = document.getElementById ("add");
+
+button.onclick = function () {
+    var nombreArticulo = document.getElementById ("name");
+    // alert (nombreArticulo.value);
+    // alert ("Estoy aquí!")
+    console.log (nombreArticulo.value);
+    localStorage.setItem ("articulo", nombreArticulo.value);
+}
+
+var groupArticles = ["Bebida", "Comida", "Snack", "Postre"];
+
+var select = document.getElementById("article-type"); 
+
+//for(var i = 0; i < groupArticles.length; i++) {
+groupArticles.forEach (article => {
+            // alert (article);
+            // var index = groupArticles[element];
+            var element = document.createElement("option");
+            element.textContent = article;
+            element.value = article;
+            select.appendChild(element);
+        });
+          
+    
+/*}); 
+    var index = groupArticles[i];
+    var element = document.createElement("option");
+    element.textContent = index;
+    element.value = index;
+    select.appendChild(element);
+}*/

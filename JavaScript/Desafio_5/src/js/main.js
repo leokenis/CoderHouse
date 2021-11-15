@@ -1,6 +1,8 @@
 // Agregar productos al stock
-/*
+
 var ID = 0;
+
+/*
 
 var products = [];  // Array de objetos.
 
@@ -93,35 +95,77 @@ function seeArticles () {
 }
 */  
 
-var button = document.getElementById ("add");
-
-button.onclick = function () {
-    var nombreArticulo = document.getElementById ("name");
-    // alert (nombreArticulo.value);
-    // alert ("Estoy aquí!")
-    console.log (nombreArticulo.value);
-    localStorage.setItem ("articulo", nombreArticulo.value);
-}
-
 var groupArticles = ["Bebida", "Comida", "Snack", "Postre"];
-
-var select = document.getElementById("article-type"); 
+const EL = "\n" // End Line
+var select = document.getElementById("group"); 
 
 //for(var i = 0; i < groupArticles.length; i++) {
 groupArticles.forEach (article => {
-            // alert (article);
-            // var index = groupArticles[element];
-            var element = document.createElement("option");
-            element.textContent = article;
-            element.value = article;
-            select.appendChild(element);
-        });
-          
-    
-/*}); 
-    var index = groupArticles[i];
+    // alert (article);
     var element = document.createElement("option");
-    element.textContent = index;
-    element.value = index;
+    element.textContent = article;
+    element.value = article;
     select.appendChild(element);
-}*/
+});
+
+var button = document.getElementById ("add");
+
+var products = [];
+
+class product {
+    constructor (article, price, group) {
+    this.id = ID + 1,
+    this.article = article,
+    this.group = group,
+    this.price = price,
+    this.globalPrice = this.profit (this.price);
+    }
+
+    profit (price) {
+        return price * 1.25;
+    }
+    /*  Comento el método para utilizarlo más adelante. */
+    mostrar () {
+        const EL = "\n" // End Line
+        var text = "ID: " + this.id + EL + "Artículo: " + this.article + EL + "Grupo de artículos: " + this.group + EL + "Precio de venta: " + this.globalPrice;
+        return text;
+    }
+}
+
+button.onclick = function () {
+    var article = document.getElementById ("name");
+    var price = document.getElementById ("price");
+    var group = document.getElementById ("group");
+    // alert (nombreArticulo.value);
+    // alert (precioArticulo.value);
+    // alert ("Estoy aquí!");
+
+    console.log (article.value);
+    console.log (price.value);
+    console.log (group.value);
+
+    // localStorage.setItem ("articulo", nombreArticulo.value);
+    /*
+    if (!(localStorage.getItem ("articulos") === null)) {
+        products.push(JSON.parse (localStorage.getItem ("articulos")));
+        // alert ("Estoy aqui!");
+    }
+    */
+    item = new product (article.value, price.value, group.value);
+    products.push (item);
+    // item = new product (article.value, price.value, group.value);
+    // products.push (item);
+    localStorage.setItem ("articulos", JSON.stringify (products));
+    // onsole.log (products);
+    // productos = JSON.parse ("articulos");
+    
+    for (var i=0; i<products.length; i++) {
+        var text = text + products[i].mostrar() + EL + EL;
+    }
+    ID ++;
+    alert (text);
+}
+
+
+          
+

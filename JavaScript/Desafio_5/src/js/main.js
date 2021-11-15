@@ -2,6 +2,79 @@
 
 var ID = 0;
 
+var groupArticles = ["Bebida", "Comida", "Snack", "Postre"];
+const EL = "\n" // End Line
+var select = document.getElementById("group"); 
+
+//for(var i = 0; i < groupArticles.length; i++) {
+groupArticles.forEach (article => {
+    // alert (article);
+    var element = document.createElement("option");
+    element.textContent = article;
+    element.value = article;
+    select.appendChild(element);
+});
+
+var button = document.getElementById ("add");
+
+var products = [];
+var ouput;
+var text = "";
+
+class product {
+    constructor (article, price, group) {
+    this.id = ID + 1,
+    this.article = article,
+    this.group = group,
+    this.price = price,
+    this.globalPrice = this.profit (this.price)
+    }
+
+    profit (price) {
+        return price * 1.25;
+    }
+    /*  Comento el método para utilizarlo más adelante. */
+    mostrar () {
+        const EL = "\n" // End Line
+        var text = "ID: " + this.id + EL + "Artículo: " + this.article + EL + "Grupo de artículos: " + this.group + EL + "Precio de venta: " + this.globalPrice;
+        return text;
+    }
+}
+
+button.onclick = function () {
+    var article = document.getElementById ("name");
+    var price = document.getElementById ("price");
+    var group = document.getElementById ("group");
+    // alert (nombreArticulo.value);
+    // alert (precioArticulo.value);
+    // alert ("Estoy aquí!");
+
+    console.log (article.value);
+    console.log (price.value);
+    console.log (group.value);
+
+    // localStorage.setItem ("articulo", nombreArticulo.value);
+    /*
+    if (!(localStorage.getItem ("articulos") === null)) {
+        products.push(JSON.parse (localStorage.getItem ("articulos")));
+        // alert ("Estoy aqui!");
+    }
+    */
+    item = new product (article.value, price.value, group.value);
+    ID = ID + 1;
+    products.push (item);
+    // item = new product (article.value, price.value, group.value);
+    // products.push (item);
+    localStorage.setItem ("articulos", JSON.stringify (products));
+    // alert (ID);
+    // productos = JSON.parse ("articulos");
+    text = "";
+    for (var i=0; i<products.length; i++) {
+        text = text + products[i].mostrar() + EL + EL;
+    }
+    alert (text);
+}
+
 /*
 
 var products = [];  // Array de objetos.
@@ -93,81 +166,4 @@ function seeArticles () {
     }
     alert (text);
 }
-*/  
-
-var groupArticles = ["Bebida", "Comida", "Snack", "Postre"];
-const EL = "\n" // End Line
-var select = document.getElementById("group"); 
-
-//for(var i = 0; i < groupArticles.length; i++) {
-groupArticles.forEach (article => {
-    // alert (article);
-    var element = document.createElement("option");
-    element.textContent = article;
-    element.value = article;
-    select.appendChild(element);
-});
-
-var button = document.getElementById ("add");
-
-var products = [];
-var ouput;
-var text = "";
-
-class product {
-    constructor (article, price, group) {
-    this.id = ID + 1,
-    this.article = article,
-    this.group = group,
-    this.price = price,
-    this.globalPrice = this.profit (this.price)
-    }
-
-    profit (price) {
-        return price * 1.25;
-    }
-    /*  Comento el método para utilizarlo más adelante. */
-    mostrar () {
-        const EL = "\n" // End Line
-        var text = "ID: " + this.id + EL + "Artículo: " + this.article + EL + "Grupo de artículos: " + this.group + EL + "Precio de venta: " + this.globalPrice;
-        return text;
-    }
-}
-
-button.onclick = function () {
-    var article = document.getElementById ("name");
-    var price = document.getElementById ("price");
-    var group = document.getElementById ("group");
-    // alert (nombreArticulo.value);
-    // alert (precioArticulo.value);
-    // alert ("Estoy aquí!");
-
-    console.log (article.value);
-    console.log (price.value);
-    console.log (group.value);
-
-    // localStorage.setItem ("articulo", nombreArticulo.value);
-    /*
-    if (!(localStorage.getItem ("articulos") === null)) {
-        products.push(JSON.parse (localStorage.getItem ("articulos")));
-        // alert ("Estoy aqui!");
-    }
-    */
-    item = new product (article.value, price.value, group.value);
-    ID = ID + 1;
-    products.push (item);
-    // item = new product (article.value, price.value, group.value);
-    // products.push (item);
-    localStorage.setItem ("articulos", JSON.stringify (products));
-    // alert (ID);
-    // productos = JSON.parse ("articulos");
-    text = "";
-    for (var i=0; i<products.length; i++) {
-        text = text + products[i].mostrar() + EL + EL;
-    }
-    alert (text);
-}
-
-
-          
-
+*/

@@ -111,6 +111,8 @@ groupArticles.forEach (article => {
 var button = document.getElementById ("add");
 
 var products = [];
+var ouput;
+var text = "";
 
 class product {
     constructor (article, price, group) {
@@ -118,7 +120,7 @@ class product {
     this.article = article,
     this.group = group,
     this.price = price,
-    this.globalPrice = this.profit (this.price);
+    this.globalPrice = this.profit (this.price)
     }
 
     profit (price) {
@@ -152,17 +154,17 @@ button.onclick = function () {
     }
     */
     item = new product (article.value, price.value, group.value);
+    ID = ID + 1;
     products.push (item);
     // item = new product (article.value, price.value, group.value);
     // products.push (item);
     localStorage.setItem ("articulos", JSON.stringify (products));
-    // onsole.log (products);
+    // alert (ID);
     // productos = JSON.parse ("articulos");
-    
+    text = "";
     for (var i=0; i<products.length; i++) {
-        var text = text + products[i].mostrar() + EL + EL;
+        text = text + products[i].mostrar() + EL + EL;
     }
-    ID ++;
     alert (text);
 }
 

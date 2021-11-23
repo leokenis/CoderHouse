@@ -90,6 +90,6 @@ console.log (heading);
 console.log ("Selección por clase");
 const classes = document.getElementsByClassName ("saludar");
 console.log (classes);
-console.log ("ontainer");
+console.log ("container");
 const comodin = document.querySelector ("#container");
 console.log (comodin.innerHTML);

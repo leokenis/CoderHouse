@@ -42,6 +42,19 @@ class product {
     }
 }
 
+function insertInTable (article, globalPrice, group) {   
+    alert ("I am in insertInTable");
+    var _articulo = article;
+    var _precio = globalPrice;
+    var _tipo = group;
+
+    var fila="<tr><td>"+_articulo+"</td><td>"+_precio+"</td><td>"+_tipo+"</td></tr></td>boton</tr>";
+        
+    var btn = document.createElement("tr");
+        btn.innerHTML=fila;
+    document.getElementById("table").appendChild(btn);
+}
+
 button.onclick = function () {
     var article = document.getElementById ("name");
     var price = document.getElementById ("price");
@@ -69,12 +82,24 @@ button.onclick = function () {
     localStorage.setItem ("articulos", JSON.stringify (products));
     // alert (ID);
     // productos = JSON.parse ("articulos");
+    //new product fromDataProduct = [];
+    var fromDataProduct = [] = JSON.parse(localStorage.getItem("articulos"));
+    // console.log (fromDataProduct);
+    /* Muestra en un alert solo las propiedades del objeto!
+    ATENCION: PIERDE LOS METODOS!
     text = "";
-    for (var i=0; i<products.length; i++) {
-        text = text + products[i].mostrar() + EL + EL;
+    for (var i=0; i<fromDataProduct.length; i++) {
+        text = text + fromDataProduct[i].article + EL + EL;
     }
     alert (text);
-}
+    */
+    var _articulo = fromDataProduct[0].article;
+    var _precio = fromDataProduct[0].globalPrice;
+    var _tipo = fromDataProduct[0].group;
+    insertInTable (_articulo, _precio, _tipo);
+    }
+
+
 
 /*
 

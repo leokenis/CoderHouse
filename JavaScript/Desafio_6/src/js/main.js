@@ -42,17 +42,41 @@ class product {
     }
 }
 
-function insertInTable (article, globalPrice, group) {   
-    alert ("I am in insertInTable");
-    var _articulo = article;
-    var _precio = globalPrice;
-    var _tipo = group;
+function refresh () {
+    var fromDataProduct = [] = JSON.parse(localStorage.getItem("articulos"));
+    var tb = document.getElementById("tBody");
+    tb.innerHTML = "";    
+    for (var i=0; i<fromDataProduct.length; i++) {
+        // text = text + fromDataProduct[i].article + EL + EL;
+        var _articulo = fromDataProduct[i].article;
+        var _precio = fromDataProduct[i].price;
+        var _tipo = fromDataProduct[i].group;
+        insertInTable (_articulo, _precio, _tipo, i);
+    }    
+}
 
-    var fila="<tr><td>"+_articulo+"</td><td>"+_precio+"</td><td>"+_tipo+"</td></tr></td>boton</tr>";
-        
+function eliminarFila (ID) {
+    var fromDataProduct = [] = JSON.parse(localStorage.getItem("articulos"));
+    fromDataProduct.splice(ID, 1);
+    localStorage.setItem ("articulos", JSON.stringify (fromDataProduct));
+    products.splice(ID, 1);
+    refresh();
+}
+
+function insertInTable (articulo, price, group, ID) {   
+    var _articulo = articulo;
+    var _precio = price;
+    var _tipo = group;
+    // alert ("I am in insertInTable" + _articulo);
+
+    var fila=`<tr><td>${_articulo}</td><td>${_precio}</td><td>${_tipo}</td><td><button type="button" class="btn btn-sm btn-danger" onclick="eliminarFila(${ID})">Delete</button></td></tr>`;
+
+    // document.getElementById("tBody").remove();
+
     var btn = document.createElement("tr");
-        btn.innerHTML=fila;
-    document.getElementById("table").appendChild(btn);
+    btn.innerHTML=fila;
+    btn.id = ID;
+    document.getElementById("tBody").appendChild(btn);
 }
 
 button.onclick = function () {
@@ -74,6 +98,7 @@ button.onclick = function () {
         // alert ("Estoy aqui!");
     }
     */
+
     item = new product (article.value, price.value, group.value);
     ID = ID + 1;
     products.push (item);
@@ -83,6 +108,7 @@ button.onclick = function () {
     // alert (ID);
     // productos = JSON.parse ("articulos");
     //new product fromDataProduct = [];
+
     var fromDataProduct = [] = JSON.parse(localStorage.getItem("articulos"));
     // console.log (fromDataProduct);
     /* Muestra en un alert solo las propiedades del objeto!
@@ -93,11 +119,18 @@ button.onclick = function () {
     }
     alert (text);
     */
-    var _articulo = fromDataProduct[0].article;
-    var _precio = fromDataProduct[0].globalPrice;
-    var _tipo = fromDataProduct[0].group;
-    insertInTable (_articulo, _precio, _tipo);
+
+    var tb = document.getElementById("tBody");
+    tb.innerHTML = "";    
+
+    for (var i=0; i<fromDataProduct.length; i++) {
+        // text = text + fromDataProduct[i].article + EL + EL;
+        var _articulo = fromDataProduct[i].article;
+        var _precio = fromDataProduct[i].price;
+        var _tipo = fromDataProduct[i].group;
+        insertInTable (_articulo, _precio, _tipo, i);
     }
+}
 
 
 

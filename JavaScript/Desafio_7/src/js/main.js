@@ -1,6 +1,15 @@
 // Agregar productos al stock
 
 var ID = 0;
+/*
+function validate (article, price, group) {
+    
+    var isValid = new RegExp ('^[A-Za-z]{2,10}$');
+    console.log(article);
+    console.log(isValid.test(article));
+    var validateArticle = document.getElementById ("input-article");
+    validateArticle.className = "invalid-feedback d-block";
+}*/
 
 var groupArticles = ["Bebida", "Comida", "Snack", "Postre"];
 const EL = "\n" // End Line
@@ -15,7 +24,7 @@ groupArticles.forEach (article => {
     select.appendChild(element);
 });
 
-var button = document.getElementById ("add");
+// var button = document.getElementById ("add");
 
 var products = [];
 var ouput;
@@ -79,10 +88,13 @@ function insertInTable (articulo, price, group, ID) {
     document.getElementById("tBody").appendChild(btn);
 }
 
-button.onclick = function () {
+/* button.onclick = function (event) {
+    event.preventDefault();
+    
     var article = document.getElementById ("name");
     var price = document.getElementById ("price");
     var group = document.getElementById ("group");
+    validate (article.value, price, group);
     // alert (nombreArticulo.value);
     // alert (precioArticulo.value);
     // alert ("Estoy aquí!");
@@ -97,7 +109,7 @@ button.onclick = function () {
         products.push(JSON.parse (localStorage.getItem ("articulos")));
         // alert ("Estoy aqui!");
     }
-    */
+    
 
     item = new product (article.value, price.value, group.value);
     ID = ID + 1;
@@ -118,7 +130,7 @@ button.onclick = function () {
         text = text + fromDataProduct[i].article + EL + EL;
     }
     alert (text);
-    */
+    
 
     var tb = document.getElementById("tBody");
     tb.innerHTML = "";    
@@ -130,7 +142,7 @@ button.onclick = function () {
         var _tipo = fromDataProduct[i].group;
         insertInTable (_articulo, _precio, _tipo, i);
     }
-}
+}*/
 
 
 

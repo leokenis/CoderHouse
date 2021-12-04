@@ -55,4 +55,3 @@ function createCard (name, age, element) {
     <h3>Edad: ${age} <h3>`;
     element.appendChild (card);
 }
-

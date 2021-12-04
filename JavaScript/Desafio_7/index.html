@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="bootstrap\css\bootstrap.min.css" rel="stylesheet">
+
+    <title>Home</title>
+</head>
+<body>    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #072146">
+        <div class="container">
+          <a class="navbar-brand">Gestión de Artículos - CoderHouse JS!</a>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 2em; background-color: #028484; align-content:flex-end;">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                    <a class="nav-link" style="color: white;" href="index.html">Agregar Artículo</a>
+                    </li>
+                    <li class="nav-item active">
+                    <span class="nav-link" style="color: white;" href="">|</span>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" style="color: white;" href="lista.html">Listar Artículos</a>
+                    </li>
+                    <li class="nav-item active">
+                    <span class="nav-link" style="color: white;" href="">|</span>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" style="color: white;" href="#">Editar Artículos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <p class="h5 text-center pt-4 ">Agregar artículo a la lista:</p>
+
+    <div id="alert"></div>
+    
+    <form class="needs-validation" novalidate>
+        <div class="container pt-4 col-sm-4">
+            <label>Nombre del artículo</label>    
+            <div class="input-group mb-3">
+                <input id="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <div id="input-article" class="invalid-feedback d-none" >* El nombre del artículo es incorrecto.</div>
+            </div>
+        </div>
+        <div class="container pt-1 col-sm-4">
+            <label>Precio del artículo</label>    
+            <div class="input-group mb-3">
+                <input id="price" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <div id="input-price" class="invalid-feedback d-none" >* El precio es incorrecto.</div>
+            </div>
+        </div>
+        <div class="container pt-1 col-sm-4">
+            <label>Tipo de artículo</label> 
+            <select id="type" class="form-select" aria-label="Default select example">
+                <option hidden>Seleccionar tipo de artículo</option>
+            </select>
+            <div id="input-type" class="invalid-feedback d-none" >* El tipo es incorrecto.</div>
+        </div>
+        <div class="text-center pt-5">
+            <button id="add" type="" class="btn btn-primary">Add Article</button>
+        </div> 
+    </form>
+
+    <!-- scripts
+    <script src="src/js/main.js"></script> --> 
+    <script src="src/js/input.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

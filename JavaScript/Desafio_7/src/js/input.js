@@ -30,7 +30,6 @@ function validate (article, price, type) {
     }
     // Modifico los elementos con jQuery
     if (validate){
-        alert("Im in jQuery")
         $('#alert').text("El artículo fue agregado correctamente");
         $('#alert').addClass("alert alert-success col-sm-4 container fadeout");
         $('#alert').show();

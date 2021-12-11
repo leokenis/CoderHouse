@@ -14,7 +14,7 @@ function validate (article, price, type) {
     var validateType = document.getElementById ("input-type");
     validateType.className = "invalid-feedback d-none";
 
-    var isValid = new RegExp ('^[A-Za-z]{2,100}$'); // Más de 2 caracteres alfabéticos 
+    var isValid = new RegExp ('^[A-Za-z ]{2,100}$'); // Más de 2 caracteres alfabéticos 
     if(!isValid.test(article)){
         validateArticle.className = "invalid-feedback d-block";
         validate = false;
@@ -28,33 +28,54 @@ function validate (article, price, type) {
         validateType.className = "invalid-feedback d-block";
         validate = false;
     }
-    if (validate){
-        var insert = document.getElementById("alert");
-        var alertValidate = document.createElement("div");
-        alertValidate.textContent = "El artículo fue agregado correctamente";
-        alertValidate.className = "alert alert-success col-sm-4 container fadeout"
-        alertValidate.setAttribute("role","alert");
-        alertValidate.setAttribute("style", "margin-top: 2em;");
-        insert.appendChild(alertValidate);
-        button.disabled = true;
+    // Modifico los elementos con jQuery
+    if (true){
+        alert("Im in jQuery")
+        $('#alert').text("El artículo fue agregado correctamente");
+        $('#alert').addClass("alert alert-success col-sm-4 container fadeout");
+        $('#alert').show();
+        $('#alert').attr("role","alert");
+        $('#add').prop("disabled",true);
         setTimeout(() => {
-            alertValidate.setAttribute("style", "display: none;");
+            $('#alert').hide();
             location.reload();
         }, 2000);
-       
+        return true;      
     }
+    return false;
 }
 
-// Save in local storage function
-class product {
-    constructor (_article, _price, _type) {
-    this.id = 0;
+// Article objetc
+class article {
+    constructor (_ID, _article, _price, _type) {
+    this.id = _ID;
     this.article = _article,
     this.type = _type,
-    this.price = this.addPprofit (_price)
+    this.price = _price,
+    this.sellPrice = this.addProfit (this.price);
     }
     addProfit (price) {
         return price * profits;
+    }
+}
+
+// Save item in local storage
+function addItem (_article, _price, _type) {
+    var newArticle = [];
+    var products = [];
+    //console.log ("Estoy en addItem!");
+    if (!(localStorage.getItem ("articles") === null)) {
+        products = JSON.parse(localStorage.getItem("articles"));
+        const ID = parseInt(localStorage.getItem("lastId")) + 1;
+        products.push(new article (ID, _article, _price, _type));
+        localStorage.setItem("articles", JSON.stringify(products));
+        localStorage.setItem ("lastId", ID);
+        //alert ("Existe articulos");
+    } else {
+        newArticle[0] = new article (0, _article, _price, _type);
+        localStorage.setItem ("articles", JSON.stringify(newArticle));
+        localStorage.setItem ("lastId", 0);
+        //alert ("No existe articulos");
     }
 }
 
@@ -64,8 +85,9 @@ button.onclick = function (event) {
     var article = document.getElementById ("name").value;
     var price = document.getElementById ("price").value;
     var type = document.getElementById ("type").value;
-    validate (article, price, type);
-    saveArticle ();
+    if(validate (article, price, type)){
+        addItem (article, price, type);
+    }
 }
 
 // Grupos de artículos insertados de forma dinámica

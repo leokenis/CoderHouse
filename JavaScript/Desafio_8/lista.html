@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="bootstrap\css\bootstrap.min.css" rel="stylesheet">
+
+    <title>Home</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #072146">
+        <div class="container">
+          <a class="navbar-brand">Gestión de Artículos - CoderHouse JS!</a>
+        </div>
+    </nav>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 2em; background-color: #028484; align-content:flex-end;">
+        <div class="container">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" style="color: white;" href="index.html">Agregar Artículo</a>
+            </li>
+            <li class="nav-item active">
+                <span class="nav-link" style="color: white;" href="">|</span>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" style="color: white;" href="lista.html">Listar Artículos</a>
+            </li>
+            <li class="nav-item active">
+                <span class="nav-link" style="color: white;" href="">|</span>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" style="color: white;" href="#">Editar Artículos</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+      </nav>
+    <p class="h5 text-center pt-4 ">Lista de artículos:</p>
+</form>
+
+<div id="warning"></div>
+
+    <div id="divTable" class="container col-lg-6 pt-4">
+    <table id= "table" class="table table-hover">
+        <thead>
+          <tr>
+            <th class="col-lg-2" scope="col">Artículo</th>
+            <th class="col-lg-2" scope="col">Precio</th>
+            <th class="col-lg-2" scope="col">Tipo</th>
+        </tr>
+        </thead>
+        <tbody id = "tBody" style="vertical-align: middle;">
+        <!-- JS CODE -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Pruebas interactuar con el DOM
+
+    <div id="container">
+        <h1>Hola Coders!</h1>
+        <h3 class="saludar">Bienvenidos al mundo del DOM</h3>
+    </div>
+    -->
+
+    <!-- script del desafío -->
+    <script src="src/js/list.js"></script>
+    
+    
+
+    <!-- script del desafío 
+    <script src="test.js"></script>
+    -->
+
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

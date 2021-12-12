@@ -10,3 +10,4 @@ $('p:first').css({backgroundColor: "orange"});
 $('li:last').css({backgroundColor: "gray"});
 
 $('.container-p').append('<h1>Hola desde Append<h1>');
+$('.container-p').prepend('<h1>Hola desde Append (first)<h1>');

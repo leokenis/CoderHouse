@@ -58,9 +58,11 @@ class article {
     }
 }
 
+var newArticle = [];
+
 // Save item in local storage
 function addItem (_article, _price, _type) {
-    var newArticle = [];
+    //var newArticle = [];
     var products = [];
     //console.log ("Estoy en addItem!");
     if (!(localStorage.getItem ("articles") === null)) {

@@ -30,14 +30,17 @@ function validate (article, price, type) {
     }
     // Modifico los elementos con jQuery
     if (validate){
+        $('#alert').hide();
         $('#alert').text("El artículo fue agregado correctamente");
         $('#alert').addClass("alert alert-success col-sm-4 container fadeout");
-        $('#alert').show();
+        $('#alert').fadeIn(500);       
         $('#alert').attr("role","alert");
         $('#add').prop("disabled",true);
         setTimeout(() => {
-            $('#alert').hide();
-            location.reload();
+            $('#alert').fadeOut(500);
+            setTimeout(() => {
+                location.reload(); // Le da tiempo al fadeOut
+                }, 500);
         }, 2000);
         return true;      
     }
@@ -58,9 +61,11 @@ class article {
     }
 }
 
+var newArticle = [];
+
 // Save item in local storage
 function addItem (_article, _price, _type) {
-    var newArticle = [];
+    //var newArticle = [];
     var products = [];
     //console.log ("Estoy en addItem!");
     if (!(localStorage.getItem ("articles") === null)) {
@@ -90,7 +95,7 @@ button.onclick = function (event) {
 }
 
 // Grupos de artículos insertados de forma dinámica
-var groupArticles = ["Bebida", "Comida", "Snack", "Postre", "Otro", "Tipo2"];
+var groupArticles = ["Bebida", "Comida", "Snack", "Postre", "Otro"];
 var select = document.getElementById("type"); 
 groupArticles.forEach (article => {
     var element = document.createElement("option");

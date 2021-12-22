@@ -22,19 +22,19 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                    <a class="nav-link" style="color: white;" href="index.html">Agregar Artículo (Create)</a>
+                    <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Create" style="color: white;" href="index.html">Agregar Artículo</a>
                     </li>
                     <li class="nav-item active">
                     <span class="nav-link" style="color: white;" href="">|</span>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" style="color: white;" href="lista.html">Listar Artículos (Read)</a>
+                    <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Read" style="color: white;" href="lista.html">Listar Artículos</a>
                     </li>
                     <li class="nav-item active">
                     <span class="nav-link" style="color: white;" href="">|</span>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" style="color: white;" href="#">Editar Artículos (Update + Delete)</a>
+                    <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Update/Delete" style="color: white;" href="#">Editar Artículos</a>
                     </li>
                 </ul>
             </div>
@@ -73,12 +73,21 @@
     </form>
 
     <!-- scripts
+        
     <script src="src/js/main.js"></script> --> 
+
+ 
     <script src="src/js/input.js"></script>
     <script src="src/js/jquery-3.6.0.min.js"></script>
     
     <!-- Bootstrap -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
 </body>
 </html>

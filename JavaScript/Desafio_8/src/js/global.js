@@ -11,7 +11,6 @@ getCotizacion();
 
 var intervalID = window.setInterval(printCotizacion, 3000);
 
-
 function getCotizacion () {
     var API = "\cotizaciones.json";
     $.getJSON(API, function(data) {

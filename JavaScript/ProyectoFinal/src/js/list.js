@@ -16,7 +16,7 @@ function listElements () {
             var _articulo = products[i].article;
             var _precio = products[i].price;
             var _tipo = products[i].type;
-            var fila=`<tr><td>${_articulo}</td><td>$ ${_precio}</td><td>${_tipo}</td></tr>`;
+            var fila=`<tr><td>${_articulo}</td><td class="text-lg-center">$ ${_precio}</td><td class="text-lg-center">${_tipo}</td></tr>`;
             var rowTable = document.createElement("tr");
             rowTable.innerHTML=fila;
             rowTable.id = ID;

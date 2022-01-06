@@ -1,7 +1,19 @@
 $('#clearStorage').click(function() {
-    localStorage.removeItem("articles");
-    localStorage.removeItem("lastID");
-    location.reload();
+
+    var RA = localStorage.getItem("articles");
+    var RID = localStorage.getItem("lastID");
+    if (RA !== null || RID !== null) {
+        localStorage.removeItem("articles");
+        localStorage.removeItem("lastID");
+        $('#modalText').text("Los datos almacenados localmente han sido borrados correctamente!");
+        $('#myModal').modal('toggle');
+    }else {
+        $('#modalText').text("No hay datos almacenados localmente para borrar!");
+        $('#myModal').modal('toggle');
+    }
+    $('#reload').click(function(){
+        location.reload();
+    })
 });
 
 var i = 0;
@@ -29,7 +41,12 @@ getCotizacion();
 
 var intervalID = window.setInterval(getCotizacion, 3000);
 
-// functio mouse over menu items (bootstap)
+// function mouse over menu items (bootstap)
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 })
+/*
+// function modal effect (bootstrap)
+$('#exampleModal').on('shown.bs.modal', function () {
+    $('#autofocus').trigger('focus')
+})*/

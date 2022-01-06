@@ -53,7 +53,7 @@ class article {
     this.id = _ID;
     this.article = _article,
     this.type = _type,
-    this.price = _price,
+    this.price = this.addProfit (_price);
     this.sellPrice = this.addProfit (this.price);
     }
     addProfit (price) {
@@ -95,7 +95,7 @@ button.onclick = function (event) {
 }
 
 // Grupos de artículos insertados de forma dinámica
-var groupArticles = ["Bebida", "Comida", "Snack", "Postre", "Otro"];
+
 var select = document.getElementById("type"); 
 groupArticles.forEach (article => {
     var element = document.createElement("option");

@@ -1,10 +1,12 @@
+var groupArticles = ["Bebida", "Comida", "Snack", "Postre", "Otro"];
+
 $('#clearStorage').click(function() {
 
     var RA = localStorage.getItem("articles");
-    var RID = localStorage.getItem("lastID");
+    var RID = localStorage.getItem("lastId");
     if (RA !== null || RID !== null) {
         localStorage.removeItem("articles");
-        localStorage.removeItem("lastID");
+        localStorage.removeItem("lastId");
         $('#modalText').text("Los datos almacenados localmente han sido borrados correctamente!");
         $('#myModal').modal('toggle');
     }else {

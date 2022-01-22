@@ -1,6 +1,5 @@
 // OnCLick form submit function
 var button = document.getElementById ("add");
-const profits = 1.25;
 
 // Validate input function
 function validate (article, price, type) {
@@ -54,48 +53,40 @@ class article {
     this.article = _article,
     this.type = _type,
     this.price = this.addProfit (_price);
-    this.sellPrice = this.addProfit (this.price);
     }
     addProfit (price) {
         return price * profits;
     }
 }
 
-var newArticle = [];
-
 // Save item in local storage
 function addItem (_article, _price, _type) {
-    //var newArticle = [];
     var products = [];
-    //console.log ("Estoy en addItem!");
     if (!(localStorage.getItem ("articles") === null)) {
         products = JSON.parse(localStorage.getItem("articles"));
         const ID = parseInt(localStorage.getItem("lastId")) + 1;
         products.push(new article (ID, _article, _price, _type));
         localStorage.setItem("articles", JSON.stringify(products));
         localStorage.setItem ("lastId", ID);
-        //alert ("Existe articulos");
-    } else {
+    } else { // No existe el local storage de artículos
         newArticle[0] = new article (0, _article, _price, _type);
         localStorage.setItem ("articles", JSON.stringify(newArticle));
         localStorage.setItem ("lastId", 0);
-        //alert ("No existe articulos");
     }
 }
 
-// Button Function
+// Button function add element
 button.onclick = function (event) {
     event.preventDefault();    
     var article = document.getElementById ("name").value;
     var price = document.getElementById ("price").value;
     var type = document.getElementById ("type").value;
-    if(validate (article, price, type)){
+    if(validate (article, price, type)){ // Valida los datos
         addItem (article, price, type);
     }
 }
 
 // Grupos de artículos insertados de forma dinámica
-
 var select = document.getElementById("type"); 
 groupArticles.forEach (article => {
     var element = document.createElement("option");

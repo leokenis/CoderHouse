@@ -1,7 +1,14 @@
+// Global variables
 var groupArticles = ["Bebida", "Comida", "Snack", "Postre", "Otro"];
+var fromDataProduct = [];
+var itemEdit;
+var i = 0;
+var cotizaciones = [];
+const profits = 1.25;
+var newArticle = [];
 
+// Clear storage common function
 $('#clearStorage').click(function() {
-
     var RA = localStorage.getItem("articles");
     var RID = localStorage.getItem("lastId");
     if (RA !== null || RID !== null) {
@@ -18,9 +25,7 @@ $('#clearStorage').click(function() {
     })
 });
 
-var i = 0;
-var cotizaciones = [];
-
+// GET quote AJAX function
 function getCotizacion () {
     var API = "\cotizaciones.json";
     $.getJSON(API, function(data) {
@@ -47,8 +52,3 @@ var intervalID = window.setInterval(getCotizacion, 3000);
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 })
-/*
-// function modal effect (bootstrap)
-$('#exampleModal').on('shown.bs.modal', function () {
-    $('#autofocus').trigger('focus')
-})*/

@@ -1,7 +1,3 @@
-// OnCLick form submit function
-var button = document.getElementById ("edit");
-const profits = 1.25;
-
 // Validate input function
 function validate (article, price, type) {
     var priceFloat = 0;
@@ -33,7 +29,6 @@ function validate (article, price, type) {
         $('#editAlert').show();
         setTimeout(() => {
             $('#editAlert').hide();
-            
             $('#editModal').modal('toggle');
         }, 2000);
         return true;      
@@ -41,48 +36,30 @@ function validate (article, price, type) {
     return false;
 }
 
-// Article objetc
-class article {
-    constructor (_ID, _article, _price, _type) {
-    this.id = _ID;
-    this.article = _article,
-    this.type = _type,
-    this.price = _price,
-    this.sellPrice = this.addProfit (this.price);
-    }
-    addProfit (price) {
-        return price * profits;
-    }
-}
-
-var fromDataProduct = [];
-var itemEdit;
-
-// Save item in local storage
+// Show item in modal from local storage
 function editarFila (ID) {  
+    $('#edit').prop("disabled",false);
+    $('#cancel').prop("disabled",false);
     itemEdit = ID;  
-    fromDataProduct = JSON.parse(localStorage.getItem("articles"));
-    
+    fromDataProduct = JSON.parse(localStorage.getItem("articles")); 
     $('#editModal').modal('toggle');
     $('#editAlert').hide();
-    
-    
     const found = fromDataProduct.findIndex(element => element.id == itemEdit);
-
     $('#in-edit-name').val(fromDataProduct[found].article);
     $('#in-edit-price').val(fromDataProduct[found].price/profits);
     $('#in-edit-type').val(fromDataProduct[found].type);
 }
 
-// Button Function
+// Button edit item function
 button.onclick = function (event) {
-    
     event.preventDefault();    
     const found = fromDataProduct.findIndex(element => element.id == itemEdit);
     var article = fromDataProduct[found].article = $('#in-edit-name').val();
     var price = fromDataProduct[found].price = $('#in-edit-price').val()*profits;
     var type = fromDataProduct[found].type = $('#in-edit-type').val();
     if(validate (article, price, type)){
+        $('#edit').prop("disabled",true);
+        $('#cancel').prop("disabled",true);
         localStorage.removeItem("articles");
         localStorage.setItem ("articles", JSON.stringify (fromDataProduct));
         mostrar();
@@ -90,7 +67,6 @@ button.onclick = function (event) {
 }
 
 // Grupos de artículos insertados de forma dinámica
-
 var select = document.getElementById("edit-type"); 
 groupArticles.forEach (article => {
     var element = document.createElement("option");

@@ -1,6 +1,6 @@
 // Listar elementos
 function listElements () {
-    if ((localStorage.getItem ("articles") === null)) {
+    if ((localStorage.getItem ("articles") === null) || localStorage.getItem ("articles") === "[]") {
         //alert("Estoy en listElements");
         var insert = document.getElementById("warning");
         var warningList = document.createElement("div");
